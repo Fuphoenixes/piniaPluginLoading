@@ -37,8 +37,7 @@ export const useStore = defineStore('main', {
   },
   actions: {
     async fetchData() {
-        const res = await requset('/api')
-        this.info = res.data
+      this.info = await requset('/api')
     }
   }
 })
@@ -47,7 +46,7 @@ export const useStore = defineStore('main', {
 ```vue
 <template>
     <div>
-       <loaing :visible="store.$loading.fetchData" message="loading...">
+       <loading :visible="store.$loading.fetchData" message="loading...">
     </div>
 </template> 
 <script lang="ts" setup>
