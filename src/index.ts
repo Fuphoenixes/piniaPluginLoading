@@ -33,6 +33,8 @@ export function PiniaLoading({ options, store }: PiniaPluginContext) {
 
 declare module 'pinia' {
   export interface PiniaCustomProperties<Id, S, G, A> {
-    $loading: Record<keyof A, Ref<Boolean>>
+    $loading: {
+      [K in keyof A as A[K] extends () => Promise<any> ? K : never ]: Ref<Boolean>;
+    }
   }
 }
