@@ -6,17 +6,17 @@ export function PiniaLoading({ options, store }: PiniaPluginContext) {
     const $loading: Record<string, Ref<Boolean>> = {}
     Object.keys(options.actions).forEach((actionKey) => {
       const originAction = options.actions[actionKey]
-      const loading = ref(false)
       const action = function(this: unknown, ...args : unknown[]) {
         const rtn = originAction.apply(this, args)
         if (rtn instanceof Promise) {
+          $loading[actionKey] = ref(false)
           return new Promise((resolve, reject) => {
-            loading.value = true
+            $loading[actionKey].value = true
             rtn
               .then(resolve)
               .catch(reject)
               .finally(() => {
-                loading.value = false
+                $loading[actionKey].value = false
               })
           })
         } else {
@@ -24,7 +24,6 @@ export function PiniaLoading({ options, store }: PiniaPluginContext) {
         }
       }
       store[actionKey] = action
-      $loading[actionKey] = loading
     })
 
     store.$loading = $loading
@@ -32,6 +31,7 @@ export function PiniaLoading({ options, store }: PiniaPluginContext) {
 }
 
 declare module 'pinia' {
+  // eslint-disable-next-line
   export interface PiniaCustomProperties<Id, S, G, A> {
     $loading: {
       [K in keyof A as A[K] extends () => Promise<any> ? K : never ]: Ref<Boolean>;

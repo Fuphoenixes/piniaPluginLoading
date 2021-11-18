@@ -1,6 +1,6 @@
 {
   "name": "pinia-plugin-loading",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "description": "Auto loading data binding plugin for pinia. You don't need to write showLoading and hideLoading any more.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
