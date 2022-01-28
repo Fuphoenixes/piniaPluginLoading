@@ -3,7 +3,7 @@
   Pinia Plugin Loading
 </h1>
 
-Auto loading data binding plugin for pinia. You don't need to write showLoading and hideLoading any more.
+Auto loading data binding plugin for pinia. You don't need to write `showLoading` or `hideLoading` any more.
 
 ## Installation
 
@@ -25,6 +25,8 @@ const pinia = createPinia()
 pinia.use(PiniaLoading)
 ```
 
+All `actions` in your stores now have a matching, reactive boolean in `$loading` that indicates whether the action is `pending` or not.
+
 ### Example
 
 ```ts
@@ -37,7 +39,7 @@ export const useStore = defineStore('main', {
   },
   actions: {
     async fetchData() {
-      this.info = await requset('/api')
+      this.info = await request('/api')
     }
   }
 })
@@ -45,10 +47,11 @@ export const useStore = defineStore('main', {
 
 ```vue
 <template>
-    <div>
-       <loading :visible="store.$loading.fetchData" message="loading...">
-    </div>
-</template> 
+  <div>
+    <loading v-if="store.$loading.fetchData" message="Loading…" />
+  </div>
+</template>
+
 <script lang="ts" setup>
 import { useStore } from '@/store'
 const store = useStore()
