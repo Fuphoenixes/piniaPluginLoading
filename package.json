@@ -1,6 +1,6 @@
 {
   "name": "@mohamadkhani/pinia-plugin-loading",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Auto loading data binding plugin for pinia. You don't need to write showLoading and hideLoading any more.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -25,8 +25,8 @@
   },
   "homepage": "https://github.com/Fuphoenixes/piniaPluginLoading#readme",
   "peerDependencies": {
-    "pinia": "^2.0.3",
     "@vue/composition-api": "^1.0.0-rc.1",
+    "pinia": "^2.0.3",
     "vue": "^2.0.0 || >=3.0.0"
   },
   "devDependencies": {
