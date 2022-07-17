@@ -3,7 +3,7 @@ import { ref, Ref } from "vue-demi";
 
 export function PiniaLoading({ options, store }: PiniaPluginContext) {
   if (options.actions) {
-    const $loading: Record<string, boolean> = {};
+    const $loading: Record<string, Ref<boolean>> = {};
     Object.keys(options.actions).forEach((actionKey) => {
       const originAction = options.actions[actionKey];
       const action = function (this: unknown, ...args: unknown[]) {
@@ -36,7 +36,7 @@ declare module "pinia" {
     $loading: {
       [K in keyof A as A[K] extends (...args: any[]) => Promise<any>
         ? K
-        : never]: boolean;
+        : never]: Ref<Boolean>;
     };
   }
 }
