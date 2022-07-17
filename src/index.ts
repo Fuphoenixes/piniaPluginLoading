@@ -34,7 +34,7 @@ declare module 'pinia' {
   // eslint-disable-next-line
   export interface PiniaCustomProperties<Id, S, G, A> {
     $loading: {
-      [K in keyof A as A[K] extends () => Promise<any> ? K : never ]: Ref<Boolean>;
+      [K in keyof A as A[K] extends (...args: any[]) => Promise<any> ? K : never]: Ref<boolean>;
     }
   }
 }
