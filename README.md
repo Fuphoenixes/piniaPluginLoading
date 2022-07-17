@@ -3,6 +3,8 @@
   Pinia Plugin Loading
 </h1>
 
+Forked from [Fuphoenixes/piniaPluginLoading](https://github.com/Fuphoenixes/piniaPluginLoading)
+
 Auto loading data binding plugin for pinia. You don't need to write showLoading and hideLoading any more.
 
 ## Installation
