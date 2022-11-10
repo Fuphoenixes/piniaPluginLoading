@@ -25,14 +25,19 @@
   },
   "homepage": "https://github.com/Fuphoenixes/piniaPluginLoading#readme",
   "peerDependencies": {
-    "pinia": "^2.0.3",
     "@vue/composition-api": "^1.0.0-rc.1",
     "vue": "^2.0.0 || >=3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@vue/composition-api": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "pinia": "^2.0.3",
     "tsup": "^5.7.2",
     "typescript": "^4.5.2",
-    "vue": "^3.2.22"
+    "vue": "^3.0.0",
+    "vue-demi": "^0.13.11"
   }
 }

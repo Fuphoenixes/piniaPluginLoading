@@ -1,5 +1,5 @@
 import type { PiniaPluginContext } from "pinia";
-import { reactive } from "vue";
+import { reactive } from "vue-demi";
 
 export function PiniaLoading({ options, store }: PiniaPluginContext) {
   if (options.actions) {
